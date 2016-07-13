@@ -1,0 +1,243 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/hardware-icons.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/iron-icons/editor-icons.html">
+<link rel="import" href="../bower_components/iron-icons/device-icons.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animation.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/scale-up-animation.html">
+
+<link rel="import" href="../bower_components/gold-email-input/gold-email-input.html">
+<link rel="import" href="../bower_components/gold-phone-input/gold-phone-input.html">
+
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../bower_components/file-input/file-input.html">
+
+<link rel="import" href="../../app-toolbar/app-toolbar.html">
+<link rel="import" href="../../app-scroll-effects/app-scroll-effects.html">
+  <link rel="import" href="../app-header.html">
+
+<link rel="import" href="my-icons.html">
+
+<dom-module id="my-app">
+
+  <template>
+
+    <style>
+
+      :host {
+        display: block;
+        --app-primary-color: #314d0e;
+        --app-secondary-color: black;
+      }
+
+      app-header {
+        background-color: var(--app-primary-color);
+        color: #fff;
+      }
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+
+      .drawer-list {
+        margin: 0 20px;
+      }
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+      }
+      .drawer-list a.iron-selected {
+        color: red;
+        font-weight: bold;
+      }
+      .drawer-list a.subroute {
+        padding-left: 32px;
+      }
+      .footer{
+        text-align: center;
+      }
+      .condensedtext{
+        font-weight: bold;
+      }
+
+      app-toolbar.tall {
+      height: 148px;
+    }
+    app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 212px;
+      color: #fff;
+      background-color: #3f51b5;
+      --app-header-background-front-layer: {
+        background-image: url(../images/BGgreen.jpg);
+        background-position: left center;
+      };
+      --app-header-background-rear-layer: {
+        background-image: url(../images/BGred.jpg);
+        background-position: left center;
+      };
+    }
+
+
+
+
+    [main-title] {
+  font-weight: lighter;
+  margin-left: 108px;
+  margin-top: 15px;
+}
+[condensed-title] {
+  font-weight: lighter;
+  margin-left: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+[condensed-title] i {
+  font-weight: 100;
+  font-style: normal;
+}
+@media (max-width: 639px) {
+  [main-title] {
+    margin-left: 50px;
+    font-size: 30px;
+  }
+  [condensed-title] {
+    font-size: 15px;
+  }
+}
+
+
+    </style>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <app-drawer-layout fullbleed>
+
+      <!-- Drawer content -->
+      <app-drawer>
+        <app-toolbar><a name="Servicios" href="/Servicios"> <img src="../images/logosyscel.png" width="70%"></a></app-toolbar>
+        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="Informacion" href="/Informacion">Información</a>
+          <a name="Localizacion" href="/Localizacion">Localización</a>
+          <a name="Contacto" href="/Contacto">Contacto</a>
+          <a name="Servicios" href="/Servicios">Servicios</a>
+          <a href="http://www.cestadigital.es">Tienda</a>
+
+        </iron-selector>
+
+
+      </app-drawer>
+
+
+      <!-- Main content -->
+      <app-header-layout has-scrolling-region>
+
+  <app-header condenses reveals effects="waterfall resize-title blend-background parallax-background">
+          <app-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <p class="condensedtext"> Syscel Solutions</p>
+          </app-toolbar>
+          <app-toolbar class="tall">
+            <h1 main-title>{{page}}</h1>
+          </app-toolbar>
+        </app-header>
+
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+          <my-Servicios name="Servicios"></my-Servicios>
+          <my-Contacto name="Contacto"></my-Contacto>
+          <my-Localizacion name="Localizacion"></my-Localizacion>
+          <my-Informacion name="Informacion"></my-Informacion>
+
+        </iron-pages>
+        <footer class="footer">
+      SYSCEL SOLUTIONS, 2016
+        </footer>
+      </app-header-layout>
+
+    </app-drawer-layout>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'my-app',
+
+      properties: {
+
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        },
+
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'Informacion';
+      },
+
+      _pageChanged: function(page) {
+        // load page import on demand.
+        this.importHref(
+          this.resolveUrl('my-' + page + '.html'), null, null, true);
+      }
+
+
+    });
+
+  </script>
+
+</dom-module>

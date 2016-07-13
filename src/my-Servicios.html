@@ -1,0 +1,446 @@
+<paper-dialog>
+  <h2>Header</h2>
+  <paper-dialog-scrollable>
+    Lorem ipsum...
+  </paper-dialog-scrollable>
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm>Accept</paper-button>
+  </div>
+</paper-dialog><!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+
+
+<dom-module id="my-Servicios">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+      }
+      .circle {
+        display: inline-block;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        background: #ddd;
+        line-height: 64px;
+        font-size: 30px;
+        color: #555;
+        text-align: center;
+      }
+      h1 {
+        font-size: 30px;
+        color: #3c6;
+        line-height: 100%;
+      }
+      h2{
+        color: #f33;
+
+
+      }
+      .tabsrojo{
+        --paper-tabs-selection-bar-color: red;
+       }
+
+       .tabinkrojo{
+         --paper-tab-ink: red
+       }
+       .flex-horizontal {
+    @apply(--layout-horizontal);
+    margin-bottom: 15px;
+  }
+  .flexchild {
+    @apply(--layout-flex);
+  }
+  .dialogMargin{
+    padding: 50px 50px 0px 50px;
+    top: 10%;
+    left:10%;
+    right:10%;
+    bottom: 10%;
+
+
+  }
+  .closebutton{
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    margin: 24px;
+    border-radius: 5px;
+    background-color: #f7646c;
+    color: white;
+    --paper-button-ink-color: red;
+
+  }
+
+
+
+
+    </style>
+
+
+
+<!--CONTENIDO DE LAS TARJETAS-->
+
+
+<!-- servicio técnico-->
+    <paper-dialog id="toggleST"
+          entry-animation="scale-up-animation"
+          exit-animation="fade-out-animation"
+          class="dialogMargin"
+          positionTarget ="">
+
+      <h1>SERVICIO TÉCNICO</h1>
+      <hr>
+      <paper-dialog-scrollable>
+        <h2>EN SYSCEL REALIZAMOS LOS SIGUIENTES SERVICIOS:</h2>
+
+        <ul>
+          <li>Instalación, reparación, optimización,  mantenimiento de ordenadores personales y servidores.</li>
+          <li>Instalación de redes TCP y de telefonía.</li>
+          <li>Instalación y configuración de sistemas operativos (NT, 2000, Windows 2003 server, XP, Windows 7, Linux, OSx, Sistemas TPV, etc).</li>
+          <li>Instalación, mantenimiento y configuración de periféricos; impresoras, scanners, sonido, videocamaras,  routers, redes, WIFI, TPV, etc.</li>
+          <li>Traspaso de peliculas VHS a DVD,VCD y viceversa.</li>
+          <li>Desinfección de virus, recuperación de datos a bajo nivel, formateo.</li>
+          <li>Solución a problemas de software, hardware,  incompatibilidades, actualización.</li>
+        </ul>
+
+          <h2>SERVICIO TÉCNICO A DOMICILIO:</h2>
+          <ul>
+          <li>Reparación de portátiles y tablets. (Windows, Mac y Linux)</li>
+          <li>Mejora el rendimiento de su PC con cualquier sistema operativo.</li>
+          <li>Limpieza de software. (virus, adware y spyware)</li>
+          <li>Reparación de problemas de arranque.</li>
+          <li>Conexión y configuración de dispositivos (todo tipo de periféricos)</li>
+          <li>Instalación y configuración de ADSL y mejoras de velocidad de Internet. </li>
+          <li>Servicio de asistencia remota.</li>
+          <li>Instalación de redes LAN / WLAN / WIFI / PLC</li>
+        </ul>
+      </paper-dialog-scrollable>
+      <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+    </paper-dialog>
+
+
+<!--Mantenimiento-->
+<paper-dialog id="toggleMan"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+      class="dialogMargin"
+      positionTarget ="">
+
+  <h1>SERVICIO DE MANTENIMIENTO INFORMÁTICO</h1>
+  <hr>
+  <paper-dialog-scrollable>
+    <p>Mantener en buenas condiciones nuestros equipos es importante para cualquier empresa, ya que son herramientas de trabajo que deben funcionar perfectamente y, debido a que su uso es frecuente, requieren de un mantenimiento continuo. </p>
+    <p>La tecnología avanza cada vez más, lo que sea necesario mantener nuestros equipos actualizados para proteger los datos confidenciales de posibles ataques en red.</p>
+    <p>Contratando con Syscel Solutions S.L le ofreceremos el mejor servicio de acuerdo con sus necesidades, ya que esa es nuestra meta.</p>
+
+      <h2> SERVICIOS INCLUIDOS EN EL CONTRATO DE MANTENIMIENTO:</h2>
+      <ul>
+      <li>Soporte 24h por correo electrónico.</li>
+      <li>Copias de seguridad personalizada en disco duro externo o en la nube.</li>
+      <li>Limpieza en hardware y software.</li>
+      <li>Instalación de periferícos. ( impresoras, lector de tarjetas, dni electrónico, etc.)</li>
+      <li>Ampliación de memoria en sobremesas y portátiles</li>
+      <li>Instalación y configuración de servidores, Windows y Office </li>
+      <li>Restricción de paginas web inadecuadas (a petición del cliente)</li>
+      <li>Reemplazo de hardware dañado, renovación de antivirus, configuración firewall, actualización, detección y limpieza de virus.</li>
+      <li>Recuperación de datos anterior y posterior al formateo.</li>
+      <li>Conexión remota para atender urgencias de manera rápida. </li>
+      <li>Mantenimiento de redes, routers, puntos de acceso wireless, PLC.</li>
+      <li>Instalación de sistemas de virtualización.</li>
+      <li>Instalación de centralitas IP.</li>
+    </ul>
+  </paper-dialog-scrollable>
+  <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+
+</paper-dialog>
+
+
+<!-- Desarrollo Web-->
+<paper-dialog id="toggleWeb"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+      class="dialogMargin"
+      positionTarget ="">
+
+  <h1>DESARROLLO WEB</h1>
+  <hr>
+  <paper-dialog-scrollable>
+    <h2> SERVICIOS DE DESARROLLO DE WEBS:</h2>
+
+    <ul>
+      <li>Alta en dominios, hospedaje, diseño, desarrollo y publicación.</li>
+      <li>Mantenimiento de páginas web personales, renovación de dominios, portales de empresa.</li>
+      <li>Alta en buscadores y optimización de metadatos.</li>
+      <li>Soporte para Web corporativas, catálogos Online, tiendas virtuales, portales, Google adwords.</li>
+      <li>Gestores CSM. (joomla, Wordpress, Drupal) Para administrar su pagina web personalmente.</li>
+    </ul>
+
+      <h2> CREACIÓN DE :</h2>
+      <ul>
+      <li>Formularios de contacto</li>
+      <li>Estructura básica de la web.</li>
+      <li>Tienda online</li>
+      <li>Blog.</li>
+      <li>Gestión clientes y pedidos.</li>
+      <li>Galería de fotos.</li>
+      <li>Catálogo virtual.</li>
+    </ul>
+  </paper-dialog-scrollable>
+  <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+
+</paper-dialog>
+
+<!--Redes-->
+<paper-dialog id="toggleRed"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+      class="dialogMargin"
+      positionTarget ="">
+
+  <h1>REDES INFORMÁTICAS</h1>
+  <hr>
+  <paper-dialog-scrollable>
+    <h2> MANTENIMIENTO Y MONTAJE DE LA RED DE SU EMPRESA:</h2>
+  <p>Realizamos el montaje y la instalación de todo tipo de redes cableadas o inalámbricas.</p>
+  <p>Interconectamos su empresa internamente o con las distintas sedes vía Wifi o fibra óptica. Contando con las redes inalámbricas podemos reducir costes y tiempo de instalación, sin disminuir su seguridad y velocidad en la red interna. </p>
+  <p>Compartimos sus dispositivos en la red, para que puedan ser utilizados remotamente ó localmente por ciertos usuarios. Configuramos los usuarios y grupos de la red, a los que se les permitira o denegara el acceso a ciertos dispositivos como las impresoras, scaners etc. </p>
+  <p>Administramos y mantenemos su red para mejorar su seguridad. Protegiendo los datos almacenados en los equipos si fuera necesario para evitar el uso de los mismos por usuarios no deseados.</p>
+
+
+  </paper-dialog-scrollable>
+  <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+
+</paper-dialog>
+
+<!--Cursos-->
+<paper-dialog id="toggleCur"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+      class="dialogMargin"
+      positionTarget ="">
+
+  <h1>CURSOS</h1>
+  <hr>
+  <paper-dialog-scrollable>
+    <h2> IMPARTIMOS LAS SIGUIENTES CLASES:</h2>
+<ul>
+  <li>Sistemas operativos, redes, comunicaciones, WIFI,  RDSI, ADSL, Internet, correo, FTP, contaplus, etc...</li>
+  <li>Sistemas de contingencia, seguridad de datos.</li>
+  <li>Navegación en Internet básico y avanzado.</li>
+  <li>Microsoft office (Word, Excel, Access, Powerpoint, FrontPage, Outlook).</li>
+</ul>
+
+  </paper-dialog-scrollable>
+  <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+
+</paper-dialog>
+
+
+<!--Diseño-->
+<paper-dialog id="toggleDis"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+      class="dialogMargin"
+      positionTarget ="">
+
+  <h1>DISEÑO GRÁFICO</h1>
+  <hr>
+  <paper-dialog-scrollable>
+    <h2> CREAMOS ANIMACIONES E IMÁGENES DE TODO TIPO:</h2>
+    <ul>
+      <li>Animaciones, logotipos, banners publicitarios, dominios.com, .es, .net etc..</li>
+      <li>Logotipos dinámicos y estáticos</li>
+      <li>Marquesinas animadas, rotulaciones, botones, iconos, en todos los formatos, .jpg, .gif, .pic etc...</li>
+    </ul>
+
+
+  </paper-dialog-scrollable>
+  <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+
+</paper-dialog>
+
+
+<!--Programación-->
+<paper-dialog id="togglePro"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+      class="dialogMargin"
+      positionTarget ="">
+
+  <h1>PROGRAMACIÓN</h1>
+  <hr>
+  <paper-dialog-scrollable>
+    <h2> MANEJO DE LENGUAJE DE ALTO NIVEL:</h2>
+    <ul>
+      <li> Análisis, desarrollo, implantación y formación personalizada.</li>
+      <li>Proyectos a medida.</li>
+      <li>Bases de Datos.</li>
+      <li>Páginas Web.</li>
+      <li>Desarrollo de Aplicaciones.</li>
+    </ul>
+
+
+  </paper-dialog-scrollable>
+  <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+
+</paper-dialog>
+
+
+<!--Consolas-->
+<paper-dialog id="toggleCon"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+      class="dialogMargin"
+      positionTarget ="">
+
+  <h1>REPARACIÓN DE CONSOLAS</h1>
+  <hr>
+  <paper-dialog-scrollable>
+    <h2>OFRECEMOS SERVICIO DE REPARACIÓN PARA CONSOLAS COMO:</h2>
+
+    <ul>
+      <li> PlayStation 2 y 3.</li>
+      <li>Nintendo Wii.</li>
+      <li>Xbox 360 y Xbox.</li>
+      <li>Nintendo DS,DSi, DSi XL.</li>
+      <li>PSP.</li>
+    </ul>
+    <p>Presupuestos de reparación de consolas sin ningún compromisos y solo cobramos el precio de la reparación si la consola funciona.</p><p> También realizamos reemplazo de componentes, cambio de lentes PSP, Ps2, Wii.</p>
+
+  </paper-dialog-scrollable>
+  <paper-button class="closebutton" dialog-dismiss><iron-icon icon="hardware:keyboard-arrow-up"></iron-icon>Cerrar</paper-button>
+
+</paper-dialog>
+
+<!--DISEÑO DE LAS TARJETAS-->
+
+
+  <div class="flex-horizontal">
+
+    <div class="flexchild"><center>
+       <paper-card image="../images/web.jpg" on-tap="openWeb">
+         <div class="card-content"> <center>DESARROLLO WEB<center> </div>
+       </paper-card>
+     </center></div>
+     <div>&nbsp &nbsp &nbsp &nbsp &nbsp </div>
+
+     <div class="flexchild"><center>
+        <paper-card image="../images/cables.jpg" on-tap="openRed">
+          <div class="card-content"> <center>INSTALACIÓN DE REDES<center> </div>
+        </paper-card>
+      </center></div>
+
+  </div>
+  <div class="flex-horizontal">
+
+    <div class="flexchild"><center>
+       <paper-card image="../images/consultoria.jpg" on-tap="openCur">
+         <div class="card-content"> <center>CONSULTORÍA Y CURSOS<center> </div>
+       </paper-card>
+     </center></div>
+     <div>&nbsp &nbsp &nbsp &nbsp &nbsp </div>
+
+     <div class="flexchild"><center>
+        <paper-card image="../images/grafico.jpg" on-tap="openDis" >
+          <div class="card-content"> <center>DISEÑO GRÁFICO<center> </div>
+        </paper-card>
+      </center></div>
+
+  </div>
+  <div class="flex-horizontal">
+
+   <div class="flexchild"><center>
+      <paper-card image="../images/servicio.jpeg"  on-tap="openST">
+        <div class="card-content"> <center>SERVICIO TÉCNICO<center> </div>
+      </paper-card>
+    </center></div>
+    <div>&nbsp &nbsp &nbsp &nbsp &nbsp </div>
+
+    <div class="flexchild"><center>
+       <paper-card image="../images/mantenimiento.jpg" on-tap="openMan">
+         <div class="card-content"> <center>MANTENIMIENTO<center> </div>
+       </paper-card>
+     </center></div>
+
+    </div>
+  <div class="flex-horizontal">
+
+    <div class="flexchild"><center>
+       <paper-card image="../images/programacion.jpg" on-tap="openPro">
+         <div class="card-content"> <center>PROGRAMACIÓN<center> </div>
+       </paper-card>
+     </center></div>
+     <div>&nbsp &nbsp &nbsp &nbsp &nbsp </div>
+
+     <div class="flexchild"><center>
+        <paper-card image="../images/ps4.jpg" on-tap="openCon">
+          <div class="card-content"> <center>REPARACIÓN DE CONSOLAS<center> </div>
+        </paper-card>
+      </center></div>
+</div>
+
+
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'my-Servicios',
+
+      openST: function() {
+              this.$.toggleST.toggle();
+          },
+      openMan:function(){
+              this.$.toggleMan.toggle();
+          },
+      openWeb: function() {
+              this.$.toggleWeb.toggle();
+              },
+      openRed:function(){
+              this.$.toggleRed.toggle();
+              },
+      openCur: function() {
+              this.$.toggleCur.toggle();
+                  },
+      openDis:function(){
+              this.$.toggleDis.toggle();
+                  },
+      openPro: function() {
+              this.$.togglePro.toggle();
+                      },
+      openCon:function(){
+              this.$.toggleCon.toggle();
+                      },
+
+
+
+
+    });
+
+
+  </script>
+</dom-module>

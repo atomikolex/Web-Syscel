@@ -1,0 +1,12 @@
+{
+  "entrypoint": "/index.html",
+  "shell": "src/my-app.html",
+  "fragments": [
+    "src/my-Servicios.html",
+    "src/my-Contacto.html"
+    "src/my-Informacion.html"
+    "src/my-Localizacion.html"
+    "src/my-Mantenimiento.html"
+
+]
+}

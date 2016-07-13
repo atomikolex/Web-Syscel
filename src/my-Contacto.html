@@ -1,0 +1,110 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="my-Contacto">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+      }
+      .circle {
+        display: inline-block;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        background: #ddd;
+        line-height: 64px;
+        font-size: 30px;
+        color: #555;
+        text-align: center;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #212121;
+      }
+
+      .inputstyle {
+        --paper-input-container-color: #b2d8b2 ;
+        --paper-input-container-focus-color: red ;
+        --paper-input-container-input-color: black ;
+      }
+      .submitstyle{
+    background-color: #7fbf7f;
+    color:white;
+      }
+      .resetstyle{
+    background-color: #f66;
+    color:white;
+      }
+      .filestyle{
+    background-color: #0cf;
+    color: white;
+      }
+    </style>
+
+    <div class="card ">
+
+      <form  is="iron-form" id="form" method="post" action="../sendmail.php">
+
+
+        <paper-button raised class="submitstyle" onclick="_submit(event)">Enviar</paper-button>
+        <paper-button raised class="resetstyle" onclick="_reset(event)">Reset</paper-button>
+
+        <paper-input class="inputstyle" name="nombre" label="Nombre" required></paper-input>
+        <paper-input  class="inputstyle"name="apellido" label="Apellido" required ></paper-input>
+        <paper-input  class="inputstyle" name="mail" label="Correo Electrónico" required ></paper-input>
+        <paper-input  class="inputstyle" name="tfn1" label="Teléfono 1" required ></paper-input>
+        <paper-input  class="inputstyle" name="tfn2" label="Teléfono 2"></paper-input>
+        <br>
+        <paper-textarea  class="inputstyle" name="comentarios" label="Comentarios" required></paper-input>
+      </form>
+
+      <div>
+
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'my-Contacto'
+
+    });
+    function _submit(event) {
+      Polymer.dom(event).localTarget.parentElement.submit();
+    }
+    function _reset(event) {
+      var form = Polymer.dom(event).localTarget.parentElement
+      form.reset();
+      form.querySelector('.output').innerHTML = '';
+    }
+    basic.addEventListener('iron-form-submit', function(event) {
+      this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+    });
+  </script>
+
+</dom-module>
